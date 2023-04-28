@@ -1,0 +1,193 @@
+.partograma-page__container {
+  background-color: #fff;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.partograma-page__upper-bar {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  width: 604px;
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+  padding: 12px;
+}
+
+.partograma-page__pacient-data {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+}
+
+.partograma-page__pacient-data-line {
+  height: 4px;
+  width: 100%;
+  margin-top: 4px;
+  background: linear-gradient(135deg, #f4af73 0%, #df6969 100%);
+}
+.partograma-page__pacient-data-item {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.partograma-page__pacient-data-span {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height, or 117% */
+
+  color: #a9a9a9;
+}
+
+.partograma-page__pacient-data-strong {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #4e4e4e;
+}
+.partograma-page__upper-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
+}
+
+.partograma-page__chart-container {
+  width: 100%;
+}
+
+.partograma-page__bottom-content {
+  width: 100%;
+  margin-top: 24px;
+
+  text-align: center;
+  padding-left: 8px;
+}
+
+.position-select {
+  display: flex;
+}
+
+.partograma-page__label-select {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: #4e4e4e;
+}
+
+.partograma-page__pacient-data-grid {
+  display: flex;
+  height: max-content;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.partograma-page__pacient-data-button {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  flex-direction: row;
+  justify-content: center;
+  padding: 4px 8px;
+  margin-right: 6px;
+  border: 1px solid rgba(244, 175, 115, 1);
+  cursor: pointer;
+  width: 150px;
+  height: 35px;
+
+  /* background */
+
+  background: #fffbf9;
+  border-radius: 4px;
+}
+
+.partograma-page__icon-plus {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+  padding-right: 8px;
+}
+
+.partograma-page__container-historic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.partograma-page__ball-historic {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+}
+
+.partograma-page__ball-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+  width: 190px;
+}
+
+.partograma-page__container-legend {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px 4px;
+  gap: 8px;
+
+  width: 100px;
+
+  /* background */
+
+  background: #fffbf9;
+  /* Shadow/ Button */
+
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+
+.partograma-page__input-pacient-data {
+  border: 0px solid;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #4e4e4e;
+}
+
+.partograma-page__input-pacient-data:hover {
+  border: 0px solid;
+}

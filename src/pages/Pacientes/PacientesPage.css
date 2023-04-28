@@ -1,0 +1,399 @@
+.pacientes-page__container {
+  background-color: #fff;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.pacientes-page__header {
+  width: 100%;
+  height: 98px;
+  background: #ffffff;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.12);
+}
+
+.pacientes-page__header-container {
+  width: 900px;
+  margin: auto;
+  height: 98px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pacientes-page__title {
+  width: 231px;
+  height: 54px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 42px;
+  line-height: 54px;
+  /* identical to box height, or 150% */
+
+  display: flex;
+  align-items: center;
+
+  color: #f4af73;
+}
+
+.pacientes-page__historic {
+  width: 250px;
+  height: 50px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f4af73 0%, #df6969 100%), #e7ebfd;
+  border: 1px solid #f4af73;
+  border-radius: 30px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+}
+
+.pacientes-page__historic-text {
+  margin: auto;
+}
+
+.pacientes-page__filters {
+  width: 900px;
+  margin: auto;
+  height: 98px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.pacientes-page__search-container {
+  box-sizing: border-box;
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 16px;
+
+  width: 372px;
+  height: 56px;
+
+  background: rgba(231, 231, 231, 0.15);
+  border: 1px solid #f2d5bb;
+  border-radius: 80px;
+}
+.pacientes-page__search {
+  width: 300px;
+  height: 100%;
+  border: 0px;
+  background: rgba(231, 231, 231, 0.15);
+}
+
+.pacientes-page__search::placeholder {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #d9d9d9;
+}
+
+.pacientes-page__search:focus {
+  outline: none;
+}
+
+.pacientes-page__search-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+
+  width: 56px;
+  height: 56px;
+
+  /* orange degrede */
+
+  background: linear-gradient(135deg, #f4af73 0%, #df6969 100%), #e7ebfd;
+  border-radius: 0px 80px 80px 0px;
+  border-color: #f4af73;
+}
+
+.pacientes-page__add-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 22px;
+  gap: 12px;
+
+  width: 215px;
+  height: 56px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f4af73 0%, #df6969 100%), #f2d5bb;
+  border: #f4af73 1px solid;
+  border-radius: 80px;
+  color: #ffffff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.pacientes-page__table {
+  width: 900px;
+  margin: auto;
+  height: 98px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 36px;
+}
+
+thead {
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background: #fffaf5;
+  border-radius: 8px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #a9a9a9;
+  text-align: center;
+  padding: 16px 14px;
+  gap: 52px;
+}
+
+tr {
+  width: 900px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  cursor: pointer;
+  gap: 40px;
+}
+
+tr:hover {
+  width: 900px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  gap: 40px;
+  cursor: pointer;
+  border: 2px solid #cbb281;
+  border-radius: 14px;
+}
+
+th {
+  width: 180px;
+  margin: auto;
+  text-align: left;
+}
+
+td {
+  width: 180px;
+  margin: auto;
+  text-align: left;
+}
+
+.pacientes-page__time {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #4e4e4e;
+}
+
+.pacientes-page__hour {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  margin-top: -14px;
+  color: #a9a9a9;
+}
+
+.pacientes-page__container-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: left;
+}
+
+.pacientes-page__status-container-pause {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  gap: 6px;
+  color: #cb8181;
+  width: 124px;
+  height: 32px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  background: #f9f9f9;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+}
+
+.pacientes-page__status-container-no-interaction {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  gap: 4px;
+
+  width: 124px;
+  height: 32px;
+
+  background: #f9f9f9;
+  border: 1px solid #cbb281;
+  border-radius: 8px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #cbb281;
+}
+
+.pacientes-page__status-container-play {
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  gap: 4px;
+
+  width: 124px;
+  height: 32px;
+  color: #819fcb;
+  background: #f9f9f9;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.pacientes-page__status-container-finish {
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  gap: 4px;
+  color: #83cb81;
+  width: 124px;
+  height: 32px;
+
+  background: #f9f9f9;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.pacientes-page__status-pause {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3.33333px;
+  gap: 8.33px;
+
+  width: 20px;
+  height: 20px;
+
+  background: #ebc1c1;
+  border-radius: 33.3333px;
+}
+
+.pacientes-page__status-no-interaction {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3.33333px;
+  gap: 8.33px;
+
+  width: 20px;
+  height: 20px;
+
+  background: #ebe2c1;
+  border-radius: 33.3333px;
+}
+
+.pacientes-page__status-play {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3.33333px;
+  gap: 8.33px;
+
+  width: 20px;
+  height: 20px;
+
+  background: #c1dceb;
+  border-radius: 33.3333px;
+}
+
+.pacientes-page__status-finish {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3.33333px;
+  gap: 8.33px;
+
+  width: 20px;
+  height: 20px;
+
+  background: #c2ebc1;
+  border-radius: 33.3333px;
+}
