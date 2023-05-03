@@ -19,6 +19,7 @@ import PartogramaCustomizable from "./PartogramaCustomizable";
 import PartogramaBirth from "./PartogramaBirth";
 import { toggleMenuHistoric } from "../../store/modules/partogramaChart/actions";
 import PartogramaFinishModal from "./PartogramaFinishModal";
+import { addCustomizableTitle } from "../../store/modules/header/actions";
 
 interface Props {
   paciente: any;
@@ -179,7 +180,12 @@ const PartogramaUpperBar = ({ paciente }: Props) => {
         </div>
         <div
           className="partograma-page__pacient-data-button"
-          onClick={() => setTypeOfPregnancy(true)}
+          onClick={() => {
+            setTypeOfPregnancy(true);
+            setTimeout(() => {
+              document.getElementById("radio-two-babys")?.click();
+            }, 300);
+          }}
         >
           Tipo de gravidez
         </div>
@@ -199,11 +205,11 @@ const PartogramaUpperBar = ({ paciente }: Props) => {
         </div>
       </div>
       {!plusButtons && (
-        <div className="partograma-page__icon-plus">
-          <IconePlus
-            style={{ cursor: "pointer" }}
-            onClick={() => setPlusButtons(true)}
-          />
+        <div 
+          className="partograma-page__icon-plus" 
+          onClick={() => setPlusButtons(true)}
+        >
+          <IconePlus className="partograma-page__icon-plus-svg"/>
         </div>
       )}
 
@@ -266,11 +272,11 @@ const PartogramaUpperBar = ({ paciente }: Props) => {
               {customizableOneTitle}
             </div>
           </div>
-          <div className="partograma-page__icon-plus">
-            <IconeUnplus
-              style={{ cursor: "pointer" }}
-              onClick={() => setPlusButtons(false)}
-            />
+          <div 
+            className="partograma-page__icon-plus" 
+            onClick={() => setPlusButtons(false)}
+          >
+            <IconeUnplus className="partograma-page__icon-plus-svg"/>
           </div>
         </>
       )}
@@ -342,13 +348,33 @@ const PartogramaUpperBar = ({ paciente }: Props) => {
       />
       <PartogramaCustomizable
         isModalOpen={customizableOne}
-        handleCloseModal={() => setCustomizableOne(false)}
+        handleCloseModal={() => {
+          setCustomizableOne(false);
+        }}
+        onFinish={(value) =>
+          dispatch(
+            addCustomizableTitle({
+              title: customizableOneTitle,
+              observation: value,
+              index: 0,
+            })
+          )
+        }
         setTitle={setCustomizableOneTitle}
         title={customizableOneTitle}
       />
       <PartogramaCustomizable
         isModalOpen={customizableTwo}
         handleCloseModal={() => setCustomizableTwo(false)}
+        onFinish={(value) =>
+          dispatch(
+            addCustomizableTitle({
+              title: customizableTwoTitle,
+              observation: value,
+              index: 1,
+            })
+          )
+        }
         setTitle={setCustomizableTwoTitle}
         title={customizableTwoTitle}
       />
@@ -357,6 +383,15 @@ const PartogramaUpperBar = ({ paciente }: Props) => {
         handleCloseModal={() => setCustomizableThree(false)}
         setTitle={setCustomizableThreeTitle}
         title={customizableThreeTitle}
+        onFinish={(value) =>
+          dispatch(
+            addCustomizableTitle({
+              title: customizableThreeTitle,
+              observation: value,
+              index: 2,
+            })
+          )
+        }
       />
     </div>
   );

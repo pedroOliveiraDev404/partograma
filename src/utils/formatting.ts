@@ -22,7 +22,6 @@ export const formatDateAxis = (value: string | number) => {
   return formatted;
 };
 
-
 export const cpfValidate = (cpf: string) => {
   cpf = cpf.replace(/[^\d]+/g, "");
   if (cpf === "") return false;
@@ -136,4 +135,128 @@ export const valuePosition = (e: any) => {
     default:
       return e;
   }
+};
+
+export const makeEventsInterval = (
+  data: any[],
+  objKey: string,
+  idKey: string
+) => {
+  const dataReverse = data.reduceRight(function (previous: any, current: any) {
+    previous.push(current);
+    return previous;
+  }, []);
+
+  const find: any = dataReverse.find((item: any) => item?.[objKey]);
+  const interval: any[] = [];
+  let auxInterval = 0;
+  if (find) {
+    dataReverse.forEach((item: any) => {
+      if (
+        find?.[idKey] === item?.[idKey] &&
+        (auxInterval === 0 || auxInterval === 1)
+      ) {
+        auxInterval = 1;
+        interval.push(item);
+      } else if (auxInterval === 1) {
+        auxInterval = 2;
+      }
+    });
+  }
+
+  const findSecond = dataReverse.find(
+    (item: any) =>
+      item?.position < interval[interval.length - 1]?.position &&
+      item?.[objKey] !== undefined
+  );
+  const intervalSecond: any[] = [];
+  let auxIntervalSecond = 0;
+  if (findSecond) {
+    dataReverse.forEach((item: any) => {
+      if (
+        findSecond?.[idKey] === item?.[idKey] &&
+        item?.position < interval[interval.length - 1]?.position &&
+        auxIntervalSecond !== 2
+      ) {
+        auxIntervalSecond = 1;
+        intervalSecond.push(item);
+      } else if (auxIntervalSecond === 1) {
+        auxIntervalSecond = 2;
+      }
+    });
+  }
+
+  const findThird = dataReverse.find(
+    (item: any) =>
+      item?.position < intervalSecond[intervalSecond.length - 1]?.position &&
+      item?.[objKey] !== undefined
+  );
+  const intervalThird: any[] = [];
+  let auxIntervalThird = 0;
+  if (findThird) {
+    dataReverse.forEach((item: any) => {
+      if (
+        findThird?.[idKey] === item?.[idKey] &&
+        item?.position < intervalSecond[intervalSecond.length - 1]?.position &&
+        auxIntervalThird !== 2
+      ) {
+        auxIntervalThird = 1;
+        intervalThird.push(item);
+      } else if (auxIntervalThird === 1) {
+        auxIntervalThird = 2;
+      }
+    });
+  }
+
+  const findFourth = dataReverse.find(
+    (item: any) =>
+      item?.position < intervalThird[intervalThird.length - 1]?.position &&
+      item?.[objKey] !== undefined
+  );
+  const intervalFourth: any[] = [];
+  let auxIntervalFourth = 0;
+  if (findFourth) {
+    dataReverse.forEach((item: any) => {
+      if (
+        findFourth?.[idKey] === item?.[idKey] &&
+        item?.position < intervalThird[intervalThird.length - 1]?.position &&
+        auxIntervalFourth !== 2
+      ) {
+        auxIntervalFourth = 1;
+        intervalFourth.push(item);
+      } else if (auxIntervalFourth === 1) {
+        auxIntervalFourth = 2;
+      }
+    });
+  }
+
+  const findFifth = dataReverse.find(
+    (item: any) =>
+      item?.position < intervalFourth[intervalFourth.length - 1]?.position &&
+      item?.[objKey] !== undefined
+  );
+  const intervalFifth: any[] = [];
+  let auxIntervalFifth = 0;
+  if (findFifth) {
+    dataReverse.forEach((item: any) => {
+      if (
+        findFifth?.[idKey] === item?.[idKey] &&
+        item?.position < intervalFourth[intervalFourth.length - 1]?.position &&
+        auxIntervalFifth !== 2
+      ) {
+        auxIntervalFifth = 1;
+        intervalFifth.push(item);
+      } else if (auxIntervalFifth === 1) {
+        auxIntervalFifth = 2;
+      }
+    });
+  }
+
+  return [
+    interval,
+    intervalSecond,
+    intervalThird,
+    intervalFourth,
+    intervalFifth,
+  ];
 };

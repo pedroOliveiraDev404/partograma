@@ -26,6 +26,7 @@
   resize: none;
 }
 
+
 .paciente-add-modal__input-textarea {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px 8px 0px 0px;
@@ -191,4 +192,21 @@
 
   flex: none;
   order: 0;
+}
+
+.paciente-add-modal__interval-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.paciente-add-modal__interval-box span {
+  margin-bottom: 8px;
+}
+
+.paciente-add-modal__list {
+  width: 100%;
+}
+
+.paciente-add-modal__list li {
+  width: 100%;
 }

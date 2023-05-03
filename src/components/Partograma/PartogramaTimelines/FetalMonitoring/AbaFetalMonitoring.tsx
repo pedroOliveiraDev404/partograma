@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { ReactComponent as IconeTimelinePlusSign } from "../../../../assets/IconeTimelinePlusSign.svg";
 
-import TimelineOxytocinChart from "../TimelineOxytocinChart";
-import TimelinePharmacologicalChart from "../TimelinePharmacologicalChart";
+import TimelineOxytocinChart from "../Oxytocin/TimelineOxytocinChart";
+import TimelinePharmacologicalChart from "../Pharmacological/TimelinePharmacologicalChart";
 import PartogramaMonitoringChart from "./PartogramaMonitoringChart";
 import PartogramaMonitoringMenu from "./PartogramaMonitoringMenu";
 import { TabPanel } from "../../PartogramaModalTabs/utils";

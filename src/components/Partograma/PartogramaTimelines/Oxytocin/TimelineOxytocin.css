@@ -1,0 +1,21 @@
+.timeline-oxytocin__input-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: -12px;
+}
+
+.timeline-oxytocin__input-box input {
+  text-align: center;
+  width: 75px;
+}
+
+.timeline-oxytocin__submit-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 8px;
+}
+

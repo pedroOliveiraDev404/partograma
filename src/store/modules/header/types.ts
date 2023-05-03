@@ -5,11 +5,16 @@ export interface DataReducer {
   bloodType: BloodType | null;
   statusGbs: StatusGbs | null;
   pregnancyType: PregnancyType | null;
-  ruptureOne: Rupture  | null;
-  ruptureTwo?: Rupture  | null;
+  ruptureOne: Rupture | null;
+  ruptureTwo?: Rupture | null;
   deliveryTime: DeliveryTime | null;
-  birthTimeOne: BirthTime  | null;
-  birthTimeTwo?: BirthTime  | null;
+  birthTimeOne: BirthTime | null;
+  birthTimeTwo?: BirthTime | null;
+  dischargeTimeOne: DischargeTime | null;
+  dischargeTimeTwo?: DischargeTime | null;
+  customizableTitleOne?: CustomizableTitle;
+  customizableTitleTwo?: CustomizableTitle;
+  customizableTitleThree?: CustomizableTitle;
 }
 
 export interface GestacionalAge {
@@ -48,18 +53,24 @@ export interface PregnancyType {
 }
 
 export interface DeliveryTime {
-  deliveryTime: string;
+  deliveryTime: string | Date;
   observation: string;
 }
 
-export interface BirthTime {
-  birthTime: string;
-  birthType: string;
+export interface CustomizableTitle {
+  title: string;
   observation: string;
+  index: number;
+}
+
+export interface DischargeTime {
+  dischargeTime: string | number | null  | Date;
+  observation: string;
+  index: number;
 }
 
 export interface BirthTime {
-  birthTime: string;
+  birthTime: string | Date;
   birthType: string;
   observation: string;
   index: number;
@@ -105,4 +116,6 @@ export const ActionsTypes = {
   ADD_RUPTURE: "@header/ADD_RUPTURE",
   ADD_DELIVERY_TIME: "@header/ADD_DELIVERY_TIME",
   ADD_BIRTH_TIME: "@header/ADD_BIRTH_TIME",
+  ADD_DISCHARGE_TIME: "@header/ADD_DISCHARGE_TIME",
+  ADD_CUSTOMIZABLE_TITLE: "@header/ADD_CUSTOMIZABLE_TITLE",
 };

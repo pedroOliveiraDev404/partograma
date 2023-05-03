@@ -1,0 +1,11 @@
+.timeline-bleeding__values-box {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+.timeline-bleeding__volume-box {
+  width: 124px;
+}

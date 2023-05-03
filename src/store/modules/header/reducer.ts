@@ -17,6 +17,8 @@ export const INITIAL_STATE: HeaderReducer = {
     deliveryTime: null,
     birthTimeOne: null,
     birthTimeTwo: null,
+    dischargeTimeOne: null,
+    dischargeTimeTwo: null
   },
 };
 
@@ -66,12 +68,20 @@ const auth: ReturnReducer = (state = INITIAL_STATE, action) => {
       }
 
       case ActionsTypes.ADD_BIRTH_TIME: {
-        console.log(action.payload)
         if (action.payload.index === 1) {
           draft.data.birthTimeTwo = action.payload;
         } else {
-          
           draft.data.birthTimeOne = action.payload;
+        }
+
+        break;
+      }
+
+      case ActionsTypes.ADD_DISCHARGE_TIME: {
+        if (action.payload.index === 1) {
+          draft.data.dischargeTimeTwo = action.payload;
+        } else {
+          draft.data.dischargeTimeOne = action.payload;
         }
 
         break;
@@ -79,6 +89,18 @@ const auth: ReturnReducer = (state = INITIAL_STATE, action) => {
 
       case ActionsTypes.ADD_DELIVERY_TIME: {
         draft.data.deliveryTime = action.payload;
+        break;
+      }
+
+      case ActionsTypes.ADD_CUSTOMIZABLE_TITLE: {
+        if (action.payload.index === 1) {
+          draft.data.customizableTitleTwo = action.payload;
+        } else if (action.payload.index === 2) {
+          draft.data.customizableTitleThree = action.payload;
+        } else {
+          draft.data.customizableTitleOne = action.payload;
+        }
+
         break;
       }
 

@@ -126,7 +126,7 @@ const PartogramaDeliveryTime = ({
           const textArea: any = document.getElementById(
             "textarea-delivery-one"
           );
-          console.log("aqui 1")
+
           dispatch(
             addBirthTime({
               birthTime: aux.time,
@@ -151,7 +151,7 @@ const PartogramaDeliveryTime = ({
           const textArea: any = document.getElementById(
             "textarea-delivery-one"
           );
-          console.log("aqui 2")
+
           dispatch(
             addBirthTime({
               birthTime: find.time,
@@ -179,7 +179,6 @@ const PartogramaDeliveryTime = ({
           const textArea: any = document.getElementById(
             "textarea-delivery-two"
           );
-          console.log("aqui 3")
           dispatch(
             addBirthTime({
               birthTime: find.time,

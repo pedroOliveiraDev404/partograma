@@ -7,7 +7,7 @@ import { Dayjs } from "dayjs";
 import { ReactComponent as IconeClose } from "../../../assets/IconeClose.svg";
 
 import { ReactComponent as IconeTimelinePlusSign } from "../../../assets/IconeTimelinePlusSign.svg";
-import TimelineChart from "./TimelineChart";
+import TimelineChart from "./TimelineChart/TimelineChart";
 import { GraficoLiquidoAmniotico } from "../../../types/partograma";
 
 import "./TimelineLiquidoAmniotico.css";

@@ -135,8 +135,12 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 12px;
-  padding-right: 8px;
+}
+
+.partograma-page__icon-plus-svg {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
 .partograma-page__container-historic {

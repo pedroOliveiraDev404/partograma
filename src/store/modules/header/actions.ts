@@ -3,7 +3,9 @@ import {
   BirthTime,
   BloodType,
   CarePlan,
+  CustomizableTitle,
   DeliveryTime,
+  DischargeTime,
   GestacionalAge,
   ObstetricHistory,
   PregnancyType,
@@ -71,5 +73,21 @@ export function addBirthTime(birthTime: BirthTime): any {
   return {
     type: ActionsTypes.ADD_BIRTH_TIME,
     payload: birthTime,
+  };
+}
+
+export function addDischargeTime(dischargeTime: DischargeTime): any {
+  return {
+    type: ActionsTypes.ADD_DISCHARGE_TIME,
+    payload: dischargeTime,
+  };
+}
+
+export function addCustomizableTitle(
+  customizableTitle: CustomizableTitle
+): any {
+  return {
+    type: ActionsTypes.ADD_CUSTOMIZABLE_TITLE,
+    payload: customizableTitle,
   };
 }

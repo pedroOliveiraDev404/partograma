@@ -6,6 +6,7 @@ import "../Pacientes/modais.css";
 interface PacienteAddModalProps {
   isModalOpen: boolean;
   handleCloseModal: () => void;
+  onFinish: (observation: string) => void;
   setTitle: (title: string) => void;
   title: string;
 }
@@ -15,9 +16,12 @@ const PartogramaCustomizable = ({
   handleCloseModal,
   title,
   setTitle,
+  onFinish
 }: PacienteAddModalProps) => {
   const onSubmit = () => {
-    handleCloseModal();
+    const textArea: any = document.getElementById("textarea-customizable")
+    onFinish(textArea.value)
+    handleCloseModal()
   };
 
   return (
@@ -25,7 +29,7 @@ const PartogramaCustomizable = ({
       <div className="timeline-liquido-amniotico__modal-container">
         <IconeClose
           className="paciente-add-modal__icone-close"
-          onClick={onSubmit}
+          onClick={handleCloseModal}
         />
         <span className="tab-dilatacao__notes-input-label">
           <input
@@ -47,7 +51,7 @@ const PartogramaCustomizable = ({
         >
           Observações
         </span>
-        <textarea className="paciente-add-modal__notes-input-textarea" />
+        <textarea className="paciente-add-modal__notes-input-textarea" id="textarea-customizable" />
         <button
           className="paciente-add-modal__button-submit"
           onClick={onSubmit}

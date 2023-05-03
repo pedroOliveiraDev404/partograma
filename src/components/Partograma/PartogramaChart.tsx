@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   LineChart,
@@ -9,11 +9,9 @@ import {
   Tooltip,
   ReferenceArea,
   ReferenceLine,
-  Brush,
 } from "recharts";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import { ReactComponent as IconeSidebarAtualizar } from "../../assets/IconeSidebarAtualizar.svg";
 
 import {
   addPosition,
@@ -31,6 +29,7 @@ interface PartogramaChartProps {
 
 const PartogramaChart = ({ setToggle, toggle }: PartogramaChartProps) => {
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
 
   const {
     positionData,
@@ -530,6 +529,7 @@ const PartogramaChart = ({ setToggle, toggle }: PartogramaChartProps) => {
       }
 */
     dispatch(addPosition(newDataChart));
+    setShow(true);
   };
 
   useEffect(() => {
@@ -653,184 +653,187 @@ const PartogramaChart = ({ setToggle, toggle }: PartogramaChartProps) => {
     <>
       {toggle ? (
         <>
-          <LineChart width={669} height={600} data={positionData}>
-            <CartesianGrid
-              strokeDasharray="3 3"
-              fill={backgroundColorChart}
-              strokeWidth={2}
-              fillOpacity={0.4}
-              stroke={
-                backgroundColorChart === "#FFFF81"
-                  ? "#CCCCCC"
-                  : backgroundColorChart === "#C1FEFF"
-                  ? "#CCCCCC"
-                  : backgroundColorChart === "#FFC0C0"
-                  ? "white"
-                  : "#CCCCCC"
-              }
-            />
-            <XAxis dataKey="timeLegend" interval={59} />
-            <YAxis
-              ticks={[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]}
-              yAxisId="left_dilatacao"
-              domain={[-0.5, 10.5]}
-            />
-            <YAxis
-              orientation="right"
-              tickFormatter={labelPosition}
-              domain={[-0.5, 10.5]}
-              ticks={[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]}
-            />
+          {show && (
+            <LineChart width={669} height={600} data={positionData}>
+              <CartesianGrid
+                strokeDasharray="3 3"
+                fill={backgroundColorChart}
+                strokeWidth={2}
+                fillOpacity={0.4}
+                stroke={
+                  backgroundColorChart === "#FFFF81"
+                    ? "#CCCCCC"
+                    : backgroundColorChart === "#C1FEFF"
+                    ? "#CCCCCC"
+                    : backgroundColorChart === "#FFC0C0"
+                    ? "white"
+                    : "#CCCCCC"
+                }
+              />
+              <XAxis dataKey="timeLegend" interval={59} />
+              <YAxis
+                ticks={[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]}
+                yAxisId="left_dilatacao"
+                domain={[-0.5, 10.5]}
+              />
+              <YAxis
+                orientation="right"
+                tickFormatter={labelPosition}
+                domain={[-0.5, 10.5]}
+                ticks={[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]}
+              />
 
-            <Tooltip content={CustomTooltip} />
-            {/* <Brush
-              dataKey="timeLegend"
-              height={30}
-              stroke="#f4af73"
-              startIndex={120}
-            />*/}
+              <Tooltip content={CustomTooltip} />
+              {/* <Brush
+                      dataKey="timeLegend"
+                      height={30}
+                      stroke="#f4af73"
+                      startIndex={120}
+                    />*/}
 
-            <Line
-              dataKey="dilatacao"
-              stroke="#2BB6D4"
-              dot={<DilatacaoDot />}
-              isAnimationActive={false}
-              activeDot={{ r: 3 }}
-              strokeWidth={4}
-              connectNulls
-            />
+              <Line
+                dataKey="dilatacao"
+                stroke="#2BB6D4"
+                dot={<DilatacaoDot />}
+                isAnimationActive={false}
+                activeDot={{ r: 3 }}
+                strokeWidth={4}
+                connectNulls
+              />
 
-            <Line
-              dataKey="ruptureOne"
-              stroke="black"
-              dot={<RuptureDotOne />}
-              isAnimationActive={false}
-              activeDot={{ r: 6 }}
-              strokeWidth={4}
-            />
-            {earlyDelivery &&
-              typePregnancy !== "Múltipla" &&
-              openLines &&
-              numberOfDeliveries !== null && (
-                <>
-                  <Line
-                    dataKey="referenceLine"
-                    stroke="black"
-                    isAnimationActive={false}
-                    activeDot={{ r: 0 }}
-                    dot={{ r: 0 }}
-                    connectNulls
-                    strokeWidth={3}
-                    strokeDasharray="4 4"
-                  />
-                </>
+              <Line
+                dataKey="ruptureOne"
+                stroke="black"
+                dot={<RuptureDotOne />}
+                isAnimationActive={false}
+                activeDot={{ r: 6 }}
+                strokeWidth={4}
+              />
+              {earlyDelivery &&
+                typePregnancy !== "Múltipla" &&
+                openLines &&
+                numberOfDeliveries !== null && (
+                  <>
+                    <Line
+                      dataKey="referenceLine"
+                      stroke="black"
+                      isAnimationActive={false}
+                      activeDot={{ r: 0 }}
+                      dot={{ r: 0 }}
+                      connectNulls
+                      strokeWidth={3}
+                      strokeDasharray="4 4"
+                    />
+                  </>
+                )}
+
+              <Line
+                dataKey="ruptureTwo"
+                stroke="black"
+                dot={<RuptureDotTwo />}
+                isAnimationActive={false}
+                activeDot={{ r: 6 }}
+                strokeWidth={4}
+              />
+
+              <Line
+                dataKey="dischargeOne"
+                stroke="black"
+                dot={<DischargeDotOne />}
+                isAnimationActive={false}
+                activeDot={{ r: 6 }}
+                strokeWidth={4}
+              />
+              <Line
+                dataKey="dischargeTwo"
+                stroke="black"
+                dot={<DischargeDotTwo />}
+                isAnimationActive={false}
+                activeDot={{ r: 6 }}
+                strokeWidth={4}
+              />
+
+              <Line
+                dataKey="bloodOne"
+                stroke="red"
+                dot={<BloodDotOne />}
+                isAnimationActive={false}
+                activeDot={{ r: 6 }}
+                strokeWidth={4}
+              />
+
+              <Line
+                dataKey="birthIconOne"
+                stroke="red"
+                dot={<BirthDotOne />}
+                isAnimationActive={false}
+                activeDot={{ r: 6 }}
+                strokeWidth={4}
+              />
+              <Line
+                dataKey="birthIconTwo"
+                stroke="red"
+                dot={<BirthDotTwo />}
+                isAnimationActive={false}
+                activeDot={{ r: 6 }}
+                strokeWidth={4}
+              />
+              <Line
+                dataKey="bloodTwo"
+                stroke="red"
+                dot={<BloodDotTwo />}
+                isAnimationActive={false}
+                activeDot={{ r: 6 }}
+                strokeWidth={4}
+              />
+
+              <Line
+                dataKey="valuePosition"
+                stroke={"#B874C6"}
+                dot={<PositionDotOne />}
+                isAnimationActive={false}
+                activeDot={{ r: 6 }}
+                strokeWidth={4}
+                connectNulls
+              />
+
+              <Line
+                dataKey="valuePositionTwo"
+                stroke={"#002471"}
+                dot={<PositionDotTwo />}
+                isAnimationActive={false}
+                activeDot={{ r: 6 }}
+                strokeWidth={4}
+                connectNulls
+              />
+
+              {earlyDelivery && (
+                <ReferenceLine
+                  x={earlyDelivery}
+                  stroke="#42b883"
+                  label={{
+                    position: "top",
+                    value: "Início do Trabalho de Parto",
+                    fill: "#42b883",
+                    textDecoration: "underline #42b883",
+                    fontSize: 14,
+                  }}
+                />
               )}
 
-            <Line
-              dataKey="ruptureTwo"
-              stroke="black"
-              dot={<RuptureDotTwo />}
-              isAnimationActive={false}
-              activeDot={{ r: 6 }}
-              strokeWidth={4}
-            />
+              {birth && (
+                <ReferenceArea
+                  y1={-0.5}
+                  y2={10.5}
+                  x1={positionData[positionData.length - 1].timeLegend}
+                  x2={birth.timeLegend}
+                  fillOpacity={0.6}
+                  ifOverflow="extendDomain"
+                />
+              )}
+            </LineChart>
+          )}
 
-            <Line
-              dataKey="dischargeOne"
-              stroke="black"
-              dot={<DischargeDotOne />}
-              isAnimationActive={false}
-              activeDot={{ r: 6 }}
-              strokeWidth={4}
-            />
-            <Line
-              dataKey="dischargeTwo"
-              stroke="black"
-              dot={<DischargeDotTwo />}
-              isAnimationActive={false}
-              activeDot={{ r: 6 }}
-              strokeWidth={4}
-            />
-
-            <Line
-              dataKey="bloodOne"
-              stroke="red"
-              dot={<BloodDotOne />}
-              isAnimationActive={false}
-              activeDot={{ r: 6 }}
-              strokeWidth={4}
-            />
-
-            <Line
-              dataKey="birthIconOne"
-              stroke="red"
-              dot={<BirthDotOne />}
-              isAnimationActive={false}
-              activeDot={{ r: 6 }}
-              strokeWidth={4}
-            />
-            <Line
-              dataKey="birthIconTwo"
-              stroke="red"
-              dot={<BirthDotTwo />}
-              isAnimationActive={false}
-              activeDot={{ r: 6 }}
-              strokeWidth={4}
-            />
-            <Line
-              dataKey="bloodTwo"
-              stroke="red"
-              dot={<BloodDotTwo />}
-              isAnimationActive={false}
-              activeDot={{ r: 6 }}
-              strokeWidth={4}
-            />
-
-            <Line
-              dataKey="valuePosition"
-              stroke={"#B874C6"}
-              dot={<PositionDotOne />}
-              isAnimationActive={false}
-              activeDot={{ r: 6 }}
-              strokeWidth={4}
-              connectNulls
-            />
-
-            <Line
-              dataKey="valuePositionTwo"
-              stroke={"#002471"}
-              dot={<PositionDotTwo />}
-              isAnimationActive={false}
-              activeDot={{ r: 6 }}
-              strokeWidth={4}
-              connectNulls
-            />
-
-            {earlyDelivery && (
-              <ReferenceLine
-                x={earlyDelivery}
-                stroke="#42b883"
-                label={{
-                  position: "top",
-                  value: "Início do Trabalho de Parto",
-                  fill: "#42b883",
-                  textDecoration: "underline #42b883",
-                  fontSize: 14,
-                }}
-              />
-            )}
-
-            {birth && (
-              <ReferenceArea
-                y1={-0.5}
-                y2={10.5}
-                x1={positionData[positionData.length - 1].timeLegend}
-                x2={birth.timeLegend}
-                fillOpacity={0.6}
-                ifOverflow="extendDomain"
-              />
-            )}
-          </LineChart>
           {/*  <div
             style={{
               transform: "translate(34px, -28px)",

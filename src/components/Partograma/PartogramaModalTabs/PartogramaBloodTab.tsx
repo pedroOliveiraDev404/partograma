@@ -1,15 +1,12 @@
 import React, { useState, SyntheticEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Typography from "@mui/material/Typography";
-import { SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import { Dayjs } from "dayjs";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 
 import { TabPanel } from "./utils";
-import { DadosPartograma } from "../../../types/partograma";
 
 import "./PartogramaDilatacaoTab.css";
 import { addPosition } from "../../../store/modules/partogramaChart/actions";

@@ -41,7 +41,7 @@ const PartogramaPositionTab = ({
   const [time, setTime] = useState("");
 
   const [positionDateTime, setPositionDateTime] = useState<
-    number | null | string
+    number | null | string | Date
   >(Date.now());
   const [apresentation, setApresentation] = useState("Vértice ou occipital");
   const [variety, setVariety] = useState("");

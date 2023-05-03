@@ -31,6 +31,7 @@ const PartogramaStatusGbs = ({
       const timeString = formatDateAxis(newValue);
       setDateFormatted(timeString);
       setStatusGbsDateTime(newValue.valueOf());
+      document.getElementById("div-date-picker")?.click();
     }
   };
 
@@ -57,7 +58,7 @@ const PartogramaStatusGbs = ({
         />
         <span className="tab-dilatacao__notes-input-label">Status GBS</span>
 
-        <div style={{ marginTop: "8px" }}>
+        <div style={{ marginTop: "8px" }} id="div-date-picker">
           <span className="partograma-page__label-select">
             Data de realização do exame
           </span>

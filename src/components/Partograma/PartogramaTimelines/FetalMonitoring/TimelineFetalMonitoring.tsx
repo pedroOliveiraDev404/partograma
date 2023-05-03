@@ -8,7 +8,7 @@ import { ReactComponent as IconeTimelinePlusSign } from "../../../../assets/Icon
 
 import "../TimelineLiquidoAmniotico.css";
 
-import TimelineCompanyChart from "../TimelineCompanyChart";
+import TimelineCompanyChart from "../Company/TimelineCompanyChart";
 import AbaFetalMonitoring from "./AbaFetalMonitoring";
 import AbaBeats from "./AbaBeats";
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TabPanel } from "../../PartogramaModalTabs/utils";
-import TimelinePharmacologicalChart from "../TimelinePharmacologicalChart";
+import TimelinePharmacologicalChart from "../Pharmacological/TimelinePharmacologicalChart";
 
 import "../TimelineLiquidoAmniotico.css";
 

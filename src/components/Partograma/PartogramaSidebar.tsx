@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Paper from "@mui/material/Paper";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as IconeSidebarBack } from "../../assets/IconeSidebarBack.svg";
 import { ReactComponent as IconeSidebarNascimento } from "../../assets/IconeSidebarNascimento.svg";
@@ -29,6 +29,7 @@ interface PartogramaSidebarProps {
 
 const PartogramaSidebar = ({ handleOpenModal }: PartogramaSidebarProps) => {
   const history = useNavigate();
+  const params: any = useParams();
   const dispatch = useDispatch();
   const {
     typePregnancy,
@@ -61,7 +62,7 @@ const PartogramaSidebar = ({ handleOpenModal }: PartogramaSidebarProps) => {
 
   return (
     <div className="partograma-sidebar__container">
-      <div className="partograma-sidebar__home-button">
+      <div className="partograma-sidebar__home-button" onClick={() => history(`/pdf/${Number(params.idPaciente)}`)}>
         <Paper className="partograma-sidebar__paper">P</Paper>
       </div>
 

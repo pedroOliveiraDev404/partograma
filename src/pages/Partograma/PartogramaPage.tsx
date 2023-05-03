@@ -7,18 +7,18 @@ import PartogramaModal from "../../components/Partograma/PartogramaModal";
 import PartogramaSidebar from "../../components/Partograma/PartogramaSidebar";
 import PartogramaUpperBar from "../../components/Partograma/PartogramaUpperBar";
 
-import TimelineNaoFarmacologico from "../../components/Partograma/PartogramaTimelines/TimelineNaoFarmacologico";
+import TimelineNaoFarmacologico from "../../components/Partograma/PartogramaTimelines/NaoFarmacologico/TimelineNaoFarmacologico";
 import { dataTable } from "../Pacientes/mock";
-import TimelineClinicalNotes from "../../components/Partograma/PartogramaTimelines/TimelineClinicalNotes";
-import TimelinePosture from "../../components/Partograma/PartogramaTimelines/TimelinePosture";
-import TimelineFluidIntake from "../../components/Partograma/PartogramaTimelines/TimelineFluidIntake";
-import TimelineBleeding from "../../components/Partograma/PartogramaTimelines/TimelineBleeding";
-import TimelineCompany from "../../components/Partograma/PartogramaTimelines/TimelineCompany";
+import TimelineClinicalNotes from "../../components/Partograma/PartogramaTimelines/ClinicalNotes/TimelineClinicalNotes";
+import TimelinePosture from "../../components/Partograma/PartogramaTimelines/Posture/TimelinePosture";
+import TimelineFluidIntake from "../../components/Partograma/PartogramaTimelines/FluidIntake/TimelineFluidIntake";
+import TimelineBleeding from "../../components/Partograma/PartogramaTimelines/Bleeding/TimelineBleeding";
+import TimelineCompany from "../../components/Partograma/PartogramaTimelines/Company/TimelineCompany";
 
-import TimelineAmnioticFluid from "../../components/Partograma/PartogramaTimelines/TimelineAmnioticFluid";
-import TimelineContraction from "../../components/Partograma/PartogramaTimelines/TimelineContraction";
-import TimelinePharmacological from "../../components/Partograma/PartogramaTimelines/TimelinePharmacological";
-import TimelineOxytocin from "../../components/Partograma/PartogramaTimelines/TimelineOxytocin";
+import TimelineAmnioticFluid from "../../components/Partograma/PartogramaTimelines/AmnioticFluid/TimelineAmnioticFluid";
+import TimelineContraction from "../../components/Partograma/PartogramaTimelines/Contraction/TimelineContraction";
+import TimelinePharmacological from "../../components/Partograma/PartogramaTimelines/Pharmacological/TimelinePharmacological";
+import TimelineOxytocin from "../../components/Partograma/PartogramaTimelines/Oxytocin/TimelineOxytocin";
 import TimelineFetalMonitoring from "../../components/Partograma/PartogramaTimelines/FetalMonitoring/TimelineFetalMonitoring";
 import {
   onEditDilatation,

@@ -31,7 +31,7 @@ const PartogramaDilatacaoTab = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [dilatacaoDateTime, setDilatacaoDateTime] = useState<
-    number | null | string
+    number | null | string | Date
   >(Date.now());
 
   const [dilatacao, setDilatacao] = useState<number>(0);

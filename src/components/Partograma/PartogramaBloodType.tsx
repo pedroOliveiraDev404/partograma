@@ -74,7 +74,7 @@ const PartogramaBloodType = ({
           <MenuItem value="Positivo">Positivo</MenuItem>
           <MenuItem value="Negativo">Negativo</MenuItem>
           <MenuItem value="Desconhecido">Desconhecido</MenuItem>
-          <MenuItem value="Desconhecido">D - Fraco</MenuItem>
+          <MenuItem value="D - Fraco">D - Fraco</MenuItem>
         </Select>
         <span
           className="tab-dilatacao__notes-input-label"

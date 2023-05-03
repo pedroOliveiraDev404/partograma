@@ -17,7 +17,7 @@ export interface DataReducer {
 
 export interface ObjData {
   timeLegend: string;
-  time: string;
+  time: string | Date;
   position: number;
   dilatacao?: number;
   ruptureOne?: number;
@@ -41,6 +41,8 @@ export interface ObjData {
   consistency?: string;
   fading?: string;
   positionDilatation?: string;
+  bloodTwoObservation?: string;
+  bloodOneObservation?: string;
 }
 
 export interface PartogramaChartReducer {

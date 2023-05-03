@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MenuItem, Modal } from "@mui/material";
 import Radio from "@mui/material/Radio";
@@ -26,7 +26,7 @@ const PartogramaTypeOfPregnancy = ({
   const { typePregnancy } = useSelector(
     (state: Store.State) => state.partogramaChart.data
   );
-
+  const [type, setType] = useState<string>("Única Cefálica");
   const [numberBabys, setNumberBabys] = useState<string>();
 
   const onSubmit = () => {
@@ -40,12 +40,25 @@ const PartogramaTypeOfPregnancy = ({
         babyNumbers: numberBabys ? numberBabys : undefined,
       })
     );
-    handleCloseModal();
+    if (typePregnancy !== "Múltipla") {
+      handleCloseModal();
+    } else {
+      if (numberBabys) {
+        handleCloseModal();
+      }
+    }
   };
 
   const handlePregnancy = (e: any) => {
+    setType(e.target.value);
     dispatch(selectTypePregnancy(e.target.value));
   };
+
+  useEffect(() => {
+    if (type === "Múltipla") {
+      document.getElementById("radio-two-babys")?.click();
+    }
+  }, [type]);
 
   return (
     <Modal open={isModalOpen} onClose={handleCloseModal}>
@@ -63,8 +76,7 @@ const PartogramaTypeOfPregnancy = ({
 
         <Select
           className="tab-dilatacao__dilatacao-input-select"
-          value={typePregnancy}
-          defaultValue="Única Cefálica"
+          value={type}
           onChange={handlePregnancy}
         >
           <MenuItem value="Única Cefálica">Única Cefálica</MenuItem>
@@ -72,7 +84,7 @@ const PartogramaTypeOfPregnancy = ({
           <MenuItem value="Única Córmica">Única Córmica</MenuItem>
           <MenuItem value="Múltipla">Múltipla</MenuItem>
         </Select>
-        {typePregnancy === "Múltipla" && (
+        {type === "Múltipla" && (
           <div style={{ width: "55%", marginTop: "16px", marginLeft: "4px" }}>
             Número de fetos
             <RadioGroup
@@ -82,8 +94,10 @@ const PartogramaTypeOfPregnancy = ({
             >
               <FormControlLabel
                 value="2"
+                id="radio-two-babys"
                 control={<Radio />}
                 label="2"
+                defaultChecked
                 onChange={(e: any) => setNumberBabys(e.target.value)}
               />
               <FormControlLabel

@@ -10,6 +10,7 @@ import { formatDatetimeAxis } from "../../utils/formatting";
 import { addPosition } from "../../store/modules/partogramaChart/actions";
 import { TabPanel } from "./PartogramaModalTabs/utils";
 import "../Pacientes/modais.css";
+import { addDischargeTime } from "../../store/modules/header/actions";
 
 interface TabTitleProps {
   title: string;
@@ -84,6 +85,13 @@ const PartogramaDequitacaoModal = ({
         }
       });
       dispatch(addPosition(aux));
+      dispatch(
+        addDischargeTime({
+          dischargeTime: dequitacaoDateTime,
+          observation: textArea.value,
+          index: 1,
+        })
+      );
     } else {
       const find = positionData.find((item) => item?.dischargeOne);
       const aux = positionData.map((item) => {
@@ -110,6 +118,13 @@ const PartogramaDequitacaoModal = ({
       });
       setFirstBaby(true);
       dispatch(addPosition(aux));
+      dispatch(
+        addDischargeTime({
+          dischargeTime: dequitacaoDateTime,
+          observation: textArea.value,
+          index: 0,
+        })
+      );
     }
 
     handleCloseModal();
@@ -165,7 +180,10 @@ const PartogramaDequitacaoModal = ({
           >
             Observações
           </span>
-          <textarea className="paciente-add-modal__notes-input-textarea" id="textarea-dequitacao"/>
+          <textarea
+            className="paciente-add-modal__notes-input-textarea"
+            id="textarea-dequitacao"
+          />
           <button
             className="paciente-add-modal__button-submit"
             onClick={onSubmit}
